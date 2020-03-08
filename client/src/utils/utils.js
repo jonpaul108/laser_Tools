@@ -28,7 +28,8 @@ class Minesweeper {
               ))
             )
         );
-
+        this.plantBombs(this.bombs);
+        this.coorStore.forEach(this.countBombs.bind(this));
         this.displayGrid = this.grid.map((row) => {
             return row.map((tile) => {
               if (tile.bomb) {
@@ -38,15 +39,14 @@ class Minesweeper {
               }
             })
           })
-        // this.plantBombs(this.bombs);
-        // this.coorStore.forEach(this.countBombs);
+        
+        
       }
 
       plantBombs (num) {
         function getRandomInt(max) {
             return Math.floor(Math.random() * Math.floor(max));
           }    
-        let counter = 0;
         while (this.coorStore.size < num) {    
           let coords = {
             r: getRandomInt(this.r),
@@ -56,13 +56,11 @@ class Minesweeper {
             this.grid[coords.r][coords.c].bomb = true;
             this.coorStore.add(JSON.stringify(coords));
           }
-          counter++;
         }
       }
       
-    
-      
       countBombs(el) {
+        console.log("HELLLO!!!!", this)
         let coords = JSON.parse(el);
         // right
         if (this.grid[coords.r][coords.c + 1]) {
