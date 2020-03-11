@@ -33,7 +33,7 @@ class Minesweeper {
         this.displayGrid = this.grid.map((row) => {
             return row.map((tile) => {
               if (tile.bomb) {
-                return "B"
+                return "b"
               } else {
                 return tile.num;
               }

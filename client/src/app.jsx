@@ -7,7 +7,11 @@ const App = () => {
   const newGame = new Minesweeper(10 ,10, 10);
   newGame.makeGrid();
 
-  return <div>{newGame.displayGrid}</div>
+  return (
+    <div>{newGame.displayGrid.map((row) => {
+    return <div>{row}</div>
+    })}</div>
+  )
 }
 
 
