@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
-const Tile = ({reveal, display, num}) => (
-<button>{num}</button>
+const Tile = ({reveal, display, coords}) => (
+<button key={coords}>{coords}</button>
 )
 
 

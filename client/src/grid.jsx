@@ -5,10 +5,11 @@ const Grid = ({row, col, bombs}) => {
   const [grid, setGrid] = useState(null);
   const makeGrid = (row, col) => {
     const newGrid = new Array(row).fill(null).map(
-      () => {
+      (el, rIndex) => {
         return <div>{new Array(col).fill(null).map(
-          () => {
-            return <Tile num={0} />
+          (el, cIndex) => {
+            let coords = JSON.stringify({r:rIndex, c:cIndex})
+            return <Tile key={coords} coords={coords} />
           }
         )}</div>
       }
