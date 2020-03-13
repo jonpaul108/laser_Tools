@@ -56,7 +56,7 @@ const App = () => {
   // newGame.makeGrid();
 
   return (
-    <div><Grid/></div>
+    <div><Grid row={row} col={col} bombs={bombs}/></div>
   )
 }
 
