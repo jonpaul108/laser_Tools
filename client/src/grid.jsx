@@ -20,7 +20,7 @@ const Grid = ({row, col, bombs}) => {
       setGrid(newGrid);
     }
   }
-  makeGrid(row, col, bombs)
+  makeGrid(10, 10)
 return <div>{grid}</div>
 }
 
