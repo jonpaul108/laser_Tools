@@ -52,7 +52,42 @@ const Grid = ({row, col, bombs}) => {
       }
     })(bombs);
 
-
+    function countBombs(el) {
+      let coords = JSON.parse(el);
+      // right
+      if (newGrid[coords.r][coords.c + 1]) {
+        newGrid[coords.r][coords.c + 1].num++;
+      }
+      // left
+      if (newGrid[coords.r][coords.c - 1]) {
+        newGrid[coords.r][coords.c - 1].num++;
+      }
+      // down
+      if (newGrid[coords.r + 1] && newGrid[coords.r + 1][coords.c]) {
+        newGrid[coords.r + 1][coords.c].num++;
+      }
+      // up
+      if (newGrid[coords.r - 1] && newGrid[coords.r - 1][coords.c]) {
+        newGrid[coords.r - 1][coords.c].num++;
+      }
+      // down right
+      if (newGrid[coords.r + 1] && newGrid[coords.r + 1][coords.c + 1]) {
+        newGrid[coords.r + 1][coords.c + 1].num++;
+      }
+      // down left
+      if (newGrid[coords.r + 1] && newGrid[coords.r + 1][coords.c - 1]) {
+        newGrid[coords.r + 1][coords.c - 1].num++;
+      }  
+      // up right
+      if (newGrid[coords.r - 1] && newGrid[coords.r - 1][coords.c + 1]) {
+        newGrid[coords.r - 1][coords.c + 1].num++;
+      }
+      // up left
+      if (newGrid[coords.r - 1] && newGrid[coords.r - 1][coords.c - 1]) {
+        newGrid[coords.r - 1][coords.c - 1].num++;
+      }
+    }    
+    locations.forEach(countBombs);
 
     return newGrid;
   });
