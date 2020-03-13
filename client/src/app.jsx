@@ -8,7 +8,6 @@ const App = () => {
   const [row, setRow] = useState(10);
   const [col, setCol] = useState(10);
   const [bombs, setBombs] = useState(10);
-  const [locations, setLocations] = useState(new Set());
   const [grid, setGrid] = useState(null);
   const [displayGrid, setDisplayGrid] = useState(null);
 
@@ -56,7 +55,7 @@ const App = () => {
   // newGame.makeGrid();
 
   return (
-    <div><Grid row={row} col={col} bombs={bombs}/></div>
+    <div><Grid row={row} col={col} bombs={bombs} /></div>
   )
 }
 
