@@ -79,7 +79,7 @@ const Grid = ({row, col, bombs}) => {
   console.log(grid);
 return <div>{grid.map((row, i) => {
   return <div>{row.map((col) => {
-    return <button>{col.num}</button>
+    return <button>{(col.revealed) ? ((col.bomb) ? 'b' : col.num) : '?'}</button>
   })} </div>
 })}</div>
 }
