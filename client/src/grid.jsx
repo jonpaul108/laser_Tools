@@ -10,7 +10,7 @@ const Grid = ({row, col, bombs}) => {
   }
   const [count, setCount] = useState(0);
   
-
+const [locations, setLocations] = useState(null);
   const [grid, setGrid] = useState(() => { 
     const newGrid = new Array(row).fill(null).map(
       (el, rowInd) => (
@@ -36,6 +36,7 @@ const Grid = ({row, col, bombs}) => {
           locations.add(JSON.stringify(coords));
         }
       }
+      setLocations(locations);
     })(bombs);
 
     function countBombs(el) {
@@ -103,6 +104,10 @@ const Grid = ({row, col, bombs}) => {
       }
       if (bomb) {
         console.log('looooooooser');
+        locations.forEach((loc) => {
+          const bombLoc = JSON.parse(loc);
+          newGrid[bombLoc.r][bombLoc.c].revealed = true;
+        })
         return;
       }
       // right
