@@ -90,15 +90,20 @@ const Grid = ({row, col, bombs}) => {
 //   }
 // }
 
-  const floodFill = (r, c) => {
+  const floodFill = (r, c, bomb) => {
     const newGrid = grid.slice();
-   
-
+    
+ 
     const reveal = (r, c) => {
+
       if (newGrid[r][c].revealed) {
         return;
       } else {
         newGrid[r][c].revealed = true;
+      }
+      if (bomb) {
+        console.log('looooooooser');
+        return;
       }
       // right
       if (newGrid[r][c + 1] && !newGrid[r][c + 1].bomb && newGrid[r][c].num === 0) {
