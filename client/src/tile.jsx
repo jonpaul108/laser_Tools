@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
-const Tile = ({reveal, display, coords, bomb = false}) => {
+const Tile = ({reveal, bomb, num, floodFill, coords}) => {
 
-  return <button key={coords}>{(!reveal) ? "?" : display}</button>
+  return <button onClick={(e) => floodFill(coords.r, coords.c)}>{(reveal) ? ((bomb) ? 'b' : ((num > 0) ? num : ' ')) : '?'}</button>
 }
 
 
