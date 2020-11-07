@@ -3,7 +3,7 @@ const path = require("path");
 
 module.exports = {
   mode: "dev",
-  entry: path.join(__dirname, "./client/src/index.jsx"),
+  entry: path.join(__dirname, "./client/src/index.tsx"),
   output: {
     path: path.join(__dirname, "./client/dist"),
     filename: "main.js",
@@ -13,7 +13,7 @@ module.exports = {
     rules: [
       {
         test: /\.jsx?$/,
-        exclude: /(node_modules)/,
+        exclude: /node_modules/,
         use: {
           loader: "babel-loader",
           options: {
@@ -22,9 +22,15 @@ module.exports = {
             ]
           }
         }
-      }
+      },
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+      },
     ]
   },
-  // target: "node",
-  // node: {global: true}
+  resolve: {
+    extensions: [ '.tsx', '.ts', '.js' ],
+  },
 };
